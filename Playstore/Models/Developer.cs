@@ -2,7 +2,7 @@
 
 namespace Playstore.Models
 {
-    public class Developer : Controller
+    public class Developer
     {
         public int DeveloperID { get; set; }
         public string Name { get; set; }

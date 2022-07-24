@@ -2,7 +2,7 @@
 
 namespace Playstore.Models
 {
-    public class User : Controller
+    public class User
     {
         public int UserID { get; set; }
         public string Name { get; set; }
@@ -10,5 +10,6 @@ namespace Playstore.Models
         public int Wallet { get; set; }
 
         public SaleGame? SaleGame { get; set; }
+        public Role? Role { get; set; }
     }
 }

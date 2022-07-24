@@ -2,7 +2,7 @@
 
 namespace Playstore.Models
 {
-    public class SaleGame : Controller
+    public class SaleGame
     {
         public int SaleID { get; set; }
         public int GameID { get; set; }
