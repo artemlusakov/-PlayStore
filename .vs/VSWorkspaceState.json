@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Playstore"
+    "\\Playstore",
+    "\\Playstore\\Data"
   ],
-  "SelectedNode": "\\Playstore\\Playstore.sln",
+  "SelectedNode": "\\Playstore\\Data\\GameContext.cs",
   "PreviewInSolutionExplorer": false
 }

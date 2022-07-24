@@ -8,6 +8,7 @@ namespace Playstore.Models
         public int GameID { get; set; }
         public int UserID { get; set; }
 
+        public User? User { get; set; }
         public Game? Game { get; set; }
     }
 }

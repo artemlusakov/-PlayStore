@@ -13,10 +13,35 @@ namespace Playstore.Data
         public DbSet<Genre> Genres { get; set; }
         public DbSet<SaleGame> SaleGames { get; set; }
         public DbSet<Developer> Developers { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<User>()
+            //    .HasOne(p => p.Role)
+            //    .WithMany()
+            //    .HasForeignKey(s => s.Role);
 
+            modelBuilder.Entity<Game>()
+                .HasOne(q => q.Developer)
+                .WithMany()
+                .HasForeignKey(w => w.DeveloperID);
+
+            modelBuilder.Entity<Game>()
+                .HasOne(e => e.Genre)
+                .WithMany()
+                .HasForeignKey(w => w.GenreID);
+
+            modelBuilder.Entity<SaleGame>()
+                .HasOne(r => r.User)
+                .WithMany()
+                .HasForeignKey(t => t.UserID);
+
+            modelBuilder.Entity<SaleGame>()
+                .HasOne(y => y.Game)
+                .WithMany()
+                .HasForeignKey(u => u.GameID);
         }
+        
     }
 }
