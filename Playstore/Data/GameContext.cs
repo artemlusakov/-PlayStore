@@ -8,19 +8,19 @@ namespace Playstore.Data
         public GameContext(DbContextOptions<GameContext> options) : base(options)
         { }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Game> Games { get; set; }
-        public DbSet<Genre> Genres { get; set; }
-        public DbSet<SaleGame> SaleGames { get; set; }
-        public DbSet<Developer> Developers { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Game> Games { get; set; } = null!;
+        public DbSet<Genre> Genres { get; set; } = null!;
+        public DbSet<SaleGame> SaleGames { get; set; } = null!;
+        public DbSet<Developer> Developers { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>()
-            //    .HasOne(p => p.Role)
-            //    .WithMany()
-            //    .HasForeignKey(s => s.Role);
+            modelBuilder.Entity<User>()
+                .HasOne(p => p.Role)
+                .WithMany()
+                .HasForeignKey(s => s.RoleID);
 
             modelBuilder.Entity<Game>()
                 .HasOne(q => q.Developer)
@@ -30,7 +30,7 @@ namespace Playstore.Data
             modelBuilder.Entity<Game>()
                 .HasOne(e => e.Genre)
                 .WithMany()
-                .HasForeignKey(w => w.GenreID);
+                .HasForeignKey(z => z.GenreID);
 
             modelBuilder.Entity<SaleGame>()
                 .HasOne(r => r.User)
@@ -41,6 +41,7 @@ namespace Playstore.Data
                 .HasOne(y => y.Game)
                 .WithMany()
                 .HasForeignKey(u => u.GameID);
+            modelBuilder.Entity<SaleGame>().HasNoKey();
         }
         
     }

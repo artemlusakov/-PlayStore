@@ -8,9 +8,10 @@ using Playstore.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<GameContext>(options =>
-    options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<GameContext>(opt => {
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConection"));
+});
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAuthentication()

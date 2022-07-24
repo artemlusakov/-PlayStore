@@ -4,8 +4,8 @@ namespace Playstore.Models
 {
     public class Role
     {
-        public int RoleId  { get; set; }
+        public int RoleID  { get; set; }
         public string RoleName { get; set; }
-        public uint price { get; set; }
+        public uint Price { get; set; }
     }
 }

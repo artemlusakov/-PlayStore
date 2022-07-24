@@ -8,8 +8,8 @@ namespace Playstore.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public int Wallet { get; set; }
+        public int RoleID { get; set; }
 
-        public SaleGame? SaleGame { get; set; }
         public Role? Role { get; set; }
     }
 }
