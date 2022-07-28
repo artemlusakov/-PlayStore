@@ -41,7 +41,7 @@ namespace Playstore.Data
                 .HasOne(y => y.Game)
                 .WithMany()
                 .HasForeignKey(u => u.GameID);
-            modelBuilder.Entity<SaleGame>().HasNoKey();
+            //modelBuilder.Entity<SaleGame>().HasNoKey();
         }
         
     }

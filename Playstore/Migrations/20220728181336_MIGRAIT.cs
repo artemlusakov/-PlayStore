@@ -4,7 +4,7 @@
 
 namespace Playstore.Migrations
 {
-    public partial class migrate : Migration
+    public partial class MIGRAIT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -106,12 +106,14 @@ namespace Playstore.Migrations
                 name: "SaleGames",
                 columns: table => new
                 {
-                    SaleID = table.Column<int>(type: "int", nullable: false),
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     GameID = table.Column<int>(type: "int", nullable: false),
                     UserID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_SaleGames", x => x.ID);
                     table.ForeignKey(
                         name: "FK_SaleGames_Games_GameID",
                         column: x => x.GameID,

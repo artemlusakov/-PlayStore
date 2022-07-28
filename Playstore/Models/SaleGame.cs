@@ -4,7 +4,7 @@ namespace Playstore.Models
 {
     public class SaleGame
     {
-        public int SaleID { get; set; }
+        public int ID { get; set; }
         public int GameID { get; set; }
         public int UserID { get; set; }
 

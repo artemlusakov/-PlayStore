@@ -11,8 +11,8 @@ using Playstore.Data;
 namespace Playstore.Migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20220724130640_migrate")]
-    partial class migrate
+    [Migration("20220728181336_MIGRAIT")]
+    partial class MIGRAIT
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,14 +123,19 @@ namespace Playstore.Migrations
 
             modelBuilder.Entity("Playstore.Models.SaleGame", b =>
                 {
-                    b.Property<int>("GameID")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("SaleID")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("GameID")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
                         .HasColumnType("int");
+
+                    b.HasKey("ID");
 
                     b.HasIndex("GameID");
 

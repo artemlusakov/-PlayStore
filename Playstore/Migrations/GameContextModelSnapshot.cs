@@ -121,14 +121,19 @@ namespace Playstore.Migrations
 
             modelBuilder.Entity("Playstore.Models.SaleGame", b =>
                 {
-                    b.Property<int>("GameID")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("SaleID")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("GameID")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
                         .HasColumnType("int");
+
+                    b.HasKey("ID");
 
                     b.HasIndex("GameID");
 
